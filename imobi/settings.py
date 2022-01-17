@@ -1,6 +1,10 @@
 import os
 from pathlib import Path
 from django.contrib.messages import constants
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -10,7 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-w!xbmy6ah%3v1bn7haii9potv&c-72cp%hx-%qq#7a)939x*9u'
+SECRET_KEY = env('SECRET')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
